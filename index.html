@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Playgrounds | Phileas' Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Base Styles & Variables --- */
+        :root {
+            --color-background: #ffffff;
+            --color-text: #333333;
+            --color-text-light: #666666;
+            --color-border: #e0e0e0;
+            --color-accent: #007bff;
+            --color-tag-bg: #f0f0f0;
+            --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Page Container & Header --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Gallery Grid --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- Project Card --- */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 180px; /* Fixed height for uniform look */
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            background-color: #f8f9fa; /* Placeholder color */
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .card-tags {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--color-tag-bg);
+            color: var(--color-text-light);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>Playgrounds</h1>
+            <p>A collection of web experiments, data visualizations, and other curiosities built for learning and fun.</p>
+        </header>
+
+        <!-- Main Gallery -->
+        <main>
+            <div class="gallery-grid">
+                
+                <!-- 
+                // HOW TO ADD A NEW PROJECT //
+                1. Copy this entire '<a ...>...</a>' block.
+                2. Paste it below the last project.
+                3. Change the 'href' to your project's URL.
+                4. Update the 'src' in the '<img>' tag with a link to your screenshot.
+                5. Edit the h3, p, and span tags with your new content.
+                -->
+
+                <!-- Project Card 1: Sympoietic Art Organism -->
+                <a href="https://phileasdg.github.io/sympoietic-art-organism" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <img src="https://placehold.co/600x360/1a1a1a/ffffff?text=Sympoietic+Art" class="card-image" alt="Sympoietic Art Organism Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/1a1a1a/ffffff?text=Image+Not+Found';">
+                    <div class="card-content">
+                        <h3 class="card-title">Sympoietic Art Organism</h3>
+                        <p class="card-description">An exploration of generative art and complex systems, creating ever-evolving digital lifeforms.</p>
+                        <div class="card-tags">
+                            <span class="tag">Generative Art</span>
+                            <span class="tag">p5.js</span>
+                            <span class="tag">Simulation</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project Card 2: Sunken Garden -->
+                <a href="https://phileasdg.github.io/coa-sunken-garden/" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <img src="https://placehold.co/600x360/004466/ffffff?text=Sunken+Garden" class="card-image" alt="Sunken Garden Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/004466/ffffff?text=Image+Not+Found';">
+                    <div class="card-content">
+                        <h3 class="card-title">COA Sunken Garden</h3>
+                        <p class="card-description">An interactive, sonified data visualization of a unique ecological space, blending sound and nature.</p>
+                        <div class="card-tags">
+                            <span class="tag">Data Sonification</span>
+                            <span class="tag">Interactive</span>
+                            <span class="tag">Ecology</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project Card 3: Seawise -->
+                <a href="https://phileasdg.github.io/seawise/" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <img src="https://placehold.co/600x360/336699/ffffff?text=Seawise" class="card-image" alt="Seawise Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/336699/ffffff?text=Image+Not+Found';">
+                    <div class="card-content">
+                        <h3 class="card-title">Seawise</h3>
+                        <p class="card-description">A data-driven web experience focused on marine information, likely involving charts and maps.</p>
+                        <div class="card-tags">
+                            <span class="tag">Data Viz</span>
+                            <span class="tag">Marine Data</span>
+                            <span class="tag">Web App</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project Card 4: Marbler -->
+                <a href="https://phileasdg.github.io/marbler/" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <img src="https://placehold.co/600x360/990033/ffffff?text=Marbler" class="card-image" alt="Marbler Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/990033/ffffff?text=Image+Not+Found';">
+                    <div class="card-content">
+                        <h3 class="card-title">Marbler</h3>
+                        <p class="card-description">A creative tool or simulation that generates fluid, marble-like textures and patterns in the browser.</p>
+                        <div class="card-tags">
+                            <span class="tag">Creative Coding</span>
+                            <span class="tag">p5.js</span>
+                            <span class="tag">Interactive Art</span>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
