@@ -27,9 +27,10 @@
 
         /* Each card is a flex item that can grow and shrink */
         .playgrounds-grid > .c-card {
-            /* flex: auto; */
             width: 100%; /* Default to full width on mobile */
             margin: 0; /* Override default card margin */
+            display: flex; /* Ensure flex properties for internal layout */
+            flex-direction: column;
         }
 
         /* On screens larger than mobile, create columns */
@@ -45,17 +46,42 @@
             }
         }
 
+        /* --- IMAGE STYLING FIX --- */
+        .playgrounds-grid .c-card__image {
+            height: 200px; /* Fixed height for the image window */
+            overflow: hidden; /* Hide image overflow */
+        }
+
+        .playgrounds-grid .c-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Scales and centers the image */
+            transition: transform 0.3s ease-out;
+            /* This is the key fix: Overrides the opacity:0 from the main stylesheet */
+            opacity: 1; 
+        }
+
+        .playgrounds-grid .c-card:hover .c-card__image img {
+            transform: scale(1.05);
+        }
+        
+        .c-card__wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
         /* Custom styles for the content inside the cards */
         .c-card__description, .c-card__tags {
             font-family: 'Inter', sans-serif;
         }
-
+        
         .c-card__description {
             font-size: 0.9rem;
             color: var(--gray-2);
             line-height: 1.6;
             margin-top: 0.75rem;
+            flex-grow: 1; /* Pushes tags to the bottom */
         }
 
         .c-card__tags {
@@ -118,7 +144,7 @@
                 <!-- Project Card 1: Sympoietic Art Organism -->
                 <article class="c-card">
                     <a href="https://phileasdg.github.io/sympoietic-art-organism" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="https://placehold.co/600x380/1a1a1a/ffffff?text=Sympoietic+Art" alt="Sympoietic Art Organism Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
+                        <img src="imgs/sympoietic-organism.png" alt="Sympoietic Art Organism Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
@@ -136,7 +162,7 @@
                 <!-- Project Card 2: Sunken Garden -->
                 <article class="c-card">
                     <a href="https://phileasdg.github.io/coa-sunken-garden/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="https://placehold.co/600x380/004466/ffffff?text=Sunken+Garden" alt="Sunken Garden Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/004466/ffffff?text=Image+Not+Found';">
+                        <img src="imgs/sunken-garden.png" alt="Sunken Garden Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/004466/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
@@ -151,28 +177,10 @@
                     </div>
                 </article>
 
-                <!-- Project Card 3: Seawise -->
-                <article class="c-card">
-                    <a href="https://phileasdg.github.io/seawise/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="https://placehold.co/600x380/336699/ffffff?text=Seawise" alt="Seawise Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
-                    </a>
-                    <div class="c-card__wrapper">
-                        <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/seawise/" class="invert" target="_blank" rel="noopener noreferrer">Seawise</a></h2>
-                        </header>
-                        <p class="c-card__description">A data-driven web experience focused on marine information, likely involving charts and maps.</p>
-                        <div class="c-card__tags">
-                            <span class="c-card__tag-link">Data Viz</span>
-                            <span class="c-card__tag-link">Marine Data</span>
-                            <span class="c-card__tag-link">Web App</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project Card 4: Marbler -->
+                <!-- Project Card 3: Marbler -->
                 <article class="c-card">
                     <a href="https://phileasdg.github.io/marbler/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="https://placehold.co/600x380/990033/ffffff?text=Marbler" alt="Marbler Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/990033/ffffff?text=Image+Not+Found';">
+                        <img src="imgs/marbler.png" alt="Marbler Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/990033/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
@@ -183,6 +191,24 @@
                             <span class="c-card__tag-link">Creative Coding</span>
                             <span class="c-card__tag-link">p5.js</span>
                             <span class="c-card__tag-link">Interactive Art</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 4: Seawise -->
+                <article class="c-card">
+                    <a href="https://phileasdg.github.io/seawise/" target="_blank" rel="noopener noreferrer" class="c-card__image">
+                        <img src="imgs/seawise.png" alt="Seawise Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    </a>
+                    <div class="c-card__wrapper">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/seawise/" class="invert" target="_blank" rel="noopener noreferrer">Seawise</a></h2>
+                        </header>
+                        <p class="c-card__description">A data-driven web experience focused on marine information, likely involving charts and maps.</p>
+                        <div class="c-card__tags">
+                            <span class="c-card__tag-link">Data Viz</span>
+                            <span class="c-card__tag-link">Marine Data</span>
+                            <span class="c-card__tag-link">Web App</span>
                         </div>
                     </div>
                 </article>
