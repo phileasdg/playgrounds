@@ -4,222 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Playgrounds | Phileas' Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your website's main stylesheet -->
+    <link rel="stylesheet" href="https://phileasdg.github.io/assets/css/style.css">
+    
+    <!-- Minimal custom styles to complement your site's theme -->
     <style>
-        /* --- Base Styles & Variables --- */
-        :root {
-            --color-background: #ffffff;
-            --color-text: #333333;
-            --color-text-light: #666666;
-            --color-border: #e0e0e0;
-            --color-accent: #007bff;
-            --color-tag-bg: #f0f0f0;
-            --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        /* Using a font that complements your site's default */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+        .playgrounds-body {
+            font-family: 'Inter', sans-serif;
         }
 
-        body {
-            font-family: var(--font-family-base);
-            background-color: var(--color-background);
-            color: var(--color-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* --- Page Container & Header --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .page-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--color-text);
-        }
-
-        .page-header p {
-            font-size: 1.1rem;
-            color: var(--color-text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* --- Gallery Grid --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        /* --- Project Card --- */
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: var(--color-text);
-            background-color: var(--color-background);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
-        }
-        
-        .card-image {
-            width: 100%;
-            height: 180px; /* Fixed height for uniform look */
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            background-color: #f8f9fa; /* Placeholder color */
-        }
-
-        .card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .card-description {
-            font-size: 1rem;
-            color: var(--color-text-light);
-            margin: 0;
-            flex-grow: 1;
-        }
-
-        .card-tags {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--color-border);
+        /* This container uses flexbox to create a robust, responsive grid */
+        .playgrounds-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 2.5rem; /* The space between cards */
+            margin-top: 3rem;
         }
 
-        .tag {
+        /* Each card is a flex item that can grow and shrink */
+        .playgrounds-grid > .c-card {
+            /* flex: auto; */
+            width: 100%; /* Default to full width on mobile */
+            margin: 0; /* Override default card margin */
+        }
+
+        /* On screens larger than mobile, create columns */
+        @media (min-width: 600px) {
+            .playgrounds-grid > .c-card {
+                width: calc(50% - 1.25rem); /* 2 columns, accounting for gap */
+            }
+        }
+
+        @media (min-width: 900px) {
+            .playgrounds-grid > .c-card {
+                width: calc(33.333% - 1.67rem); /* 3 columns */
+            }
+        }
+
+
+        /* Custom styles for the content inside the cards */
+        .c-card__description, .c-card__tags {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .c-card__description {
+            font-size: 0.9rem;
+            color: var(--gray-2);
+            line-height: 1.6;
+            margin-top: 0.75rem;
+        }
+
+        .c-card__tags {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--lighter);
+        }
+
+        .c-card__tag-link {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background-color: var(--color-tag-bg);
-            color: var(--color-text-light);
+            padding: 0.3rem 0.85rem;
+            background-color: rgba(var(--color-rgb), 0.1);
+            color: var(--link-color);
             border-radius: 999px;
             font-size: 0.8rem;
             font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
-        
-        /* --- Responsive Adjustments --- */
-        @media (max-width: 768px) {
-            .container {
-                padding: 3rem 1.5rem;
-            }
-            .page-header h1 {
-                font-size: 2rem;
-            }
+        .c-card__tag-link:hover {
+            background-color: rgba(var(--color-rgb), 0.2);
+            color: var(--link-color);
         }
-
     </style>
 </head>
-<body>
+<body class="playgrounds-body">
 
-    <div class="container">
-        <!-- Page Header -->
-        <header class="page-header">
-            <h1>Playgrounds</h1>
-            <p>A collection of web experiments, data visualizations, and other curiosities built for learning and fun.</p>
-        </header>
+    <!-- Header from your homepage source, with menu reordered -->
+    <header class="header" id="js-header">
+        <a href="https://phileasdg.github.io/" class="logo">Phileas Dazeley-Gaist</a>
+        <nav class="navbar js-navbar">
+            <button class="navbar__toggle js-toggle" aria-label="Menu">
+                <span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span>
+            </button>
+            <ul class="navbar__menu">
+                <li><a href="https://phileasdg.github.io/" target="_self">Home</a></li>
+                <li><a href="https://phileasdg.github.io/guest-lectures-and-public-speaking-events/" target="_self">Public Speaking</a></li>
+                <li class="active"><a href="#" target="_self">Digital Playgrounds</a></li>
+                <li><a href="https://phileasdg.github.io/publications/" target="_self">Publications</a></li>
+                <li><a href="https://phileasdg.github.io/a-few-words-about-me/" target="_self">About</a></li>
+                <li><a href="https://phileasdg.github.io/resume-cv/" target="_self">Resume / CV</a></li>
+                <li><a href="https://phileasdg.github.io/inquiries/" target="_self">Inquiries</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- Main Gallery -->
-        <main>
-            <div class="gallery-grid">
+    <main>
+        <div class="wrapper">
+            <!-- Page Header using your site's post header classes for correct spacing -->
+            <header class="post__header">
+                <h1 class="post__title">Playgrounds</h1>
+                <p style="text-align: center; color: var(--gray-2); max-width: 60ch; margin: 1rem auto 0; font-family: 'Inter', sans-serif;">A collection of web experiments, data visualizations, and other curiosities built for learning and fun.</p>
+            </header>
+
+            <!-- Main Gallery using the new flexbox grid -->
+            <div class="playgrounds-grid">
                 
-                <!-- 
-                // HOW TO ADD A NEW PROJECT //
-                1. Copy this entire '<a ...>...</a>' block.
-                2. Paste it below the last project.
-                3. Change the 'href' to your project's URL.
-                4. Update the 'src' in the '<img>' tag with a link to your screenshot.
-                5. Edit the h3, p, and span tags with your new content.
-                -->
-
                 <!-- Project Card 1: Sympoietic Art Organism -->
-                <a href="https://phileasdg.github.io/sympoietic-art-organism" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <img src="https://placehold.co/600x360/1a1a1a/ffffff?text=Sympoietic+Art" class="card-image" alt="Sympoietic Art Organism Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/1a1a1a/ffffff?text=Image+Not+Found';">
-                    <div class="card-content">
-                        <h3 class="card-title">Sympoietic Art Organism</h3>
-                        <p class="card-description">An exploration of generative art and complex systems, creating ever-evolving digital lifeforms.</p>
-                        <div class="card-tags">
-                            <span class="tag">Generative Art</span>
-                            <span class="tag">p5.js</span>
-                            <span class="tag">Simulation</span>
+                <article class="c-card">
+                    <a href="https://phileasdg.github.io/sympoietic-art-organism" target="_blank" rel="noopener noreferrer" class="c-card__image">
+                        <img src="https://placehold.co/600x380/1a1a1a/ffffff?text=Sympoietic+Art" alt="Sympoietic Art Organism Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
+                    </a>
+                    <div class="c-card__wrapper">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/sympoietic-art-organism" class="invert" target="_blank" rel="noopener noreferrer">Sympoietic Art Organism</a></h2>
+                        </header>
+                        <p class="c-card__description">An exploration of generative art and complex systems, creating ever-evolving digital lifeforms.</p>
+                        <div class="c-card__tags">
+                            <span class="c-card__tag-link">Generative Art</span>
+                            <span class="c-card__tag-link">p5.js</span>
+                            <span class="c-card__tag-link">Simulation</span>
                         </div>
                     </div>
-                </a>
+                </article>
 
                 <!-- Project Card 2: Sunken Garden -->
-                <a href="https://phileasdg.github.io/coa-sunken-garden/" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <img src="https://placehold.co/600x360/004466/ffffff?text=Sunken+Garden" class="card-image" alt="Sunken Garden Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/004466/ffffff?text=Image+Not+Found';">
-                    <div class="card-content">
-                        <h3 class="card-title">COA Sunken Garden</h3>
-                        <p class="card-description">An interactive, sonified data visualization of a unique ecological space, blending sound and nature.</p>
-                        <div class="card-tags">
-                            <span class="tag">Data Sonification</span>
-                            <span class="tag">Interactive</span>
-                            <span class="tag">Ecology</span>
+                <article class="c-card">
+                    <a href="https://phileasdg.github.io/coa-sunken-garden/" target="_blank" rel="noopener noreferrer" class="c-card__image">
+                        <img src="https://placehold.co/600x380/004466/ffffff?text=Sunken+Garden" alt="Sunken Garden Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/004466/ffffff?text=Image+Not+Found';">
+                    </a>
+                    <div class="c-card__wrapper">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/coa-sunken-garden/" class="invert" target="_blank" rel="noopener noreferrer">COA Sunken Garden</a></h2>
+                        </header>
+                        <p class="c-card__description">An interactive, sonified data visualization of a unique ecological space, blending sound and nature.</p>
+                        <div class="c-card__tags">
+                            <span class="c-card__tag-link">Data Sonification</span>
+                            <span class="c-card__tag-link">Interactive</span>
+                            <span class="c-card__tag-link">Ecology</span>
                         </div>
                     </div>
-                </a>
+                </article>
 
                 <!-- Project Card 3: Seawise -->
-                <a href="https://phileasdg.github.io/seawise/" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <img src="https://placehold.co/600x360/336699/ffffff?text=Seawise" class="card-image" alt="Seawise Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/336699/ffffff?text=Image+Not+Found';">
-                    <div class="card-content">
-                        <h3 class="card-title">Seawise</h3>
-                        <p class="card-description">A data-driven web experience focused on marine information, likely involving charts and maps.</p>
-                        <div class="card-tags">
-                            <span class="tag">Data Viz</span>
-                            <span class="tag">Marine Data</span>
-                            <span class="tag">Web App</span>
+                <article class="c-card">
+                    <a href="https://phileasdg.github.io/seawise/" target="_blank" rel="noopener noreferrer" class="c-card__image">
+                        <img src="https://placehold.co/600x380/336699/ffffff?text=Seawise" alt="Seawise Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    </a>
+                    <div class="c-card__wrapper">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/seawise/" class="invert" target="_blank" rel="noopener noreferrer">Seawise</a></h2>
+                        </header>
+                        <p class="c-card__description">A data-driven web experience focused on marine information, likely involving charts and maps.</p>
+                        <div class="c-card__tags">
+                            <span class="c-card__tag-link">Data Viz</span>
+                            <span class="c-card__tag-link">Marine Data</span>
+                            <span class="c-card__tag-link">Web App</span>
                         </div>
                     </div>
-                </a>
+                </article>
 
                 <!-- Project Card 4: Marbler -->
-                <a href="https://phileasdg.github.io/marbler/" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <img src="https://placehold.co/600x360/990033/ffffff?text=Marbler" class="card-image" alt="Marbler Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x360/990033/ffffff?text=Image+Not+Found';">
-                    <div class="card-content">
-                        <h3 class="card-title">Marbler</h3>
-                        <p class="card-description">A creative tool or simulation that generates fluid, marble-like textures and patterns in the browser.</p>
-                        <div class="card-tags">
-                            <span class="tag">Creative Coding</span>
-                            <span class="tag">p5.js</span>
-                            <span class="tag">Interactive Art</span>
+                <article class="c-card">
+                    <a href="https://phileasdg.github.io/marbler/" target="_blank" rel="noopener noreferrer" class="c-card__image">
+                        <img src="https://placehold.co/600x380/990033/ffffff?text=Marbler" alt="Marbler Project Thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x380/990033/ffffff?text=Image+Not+Found';">
+                    </a>
+                    <div class="c-card__wrapper">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/marbler/" class="invert" target="_blank" rel="noopener noreferrer">Marbler</a></h2>
+                        </header>
+                        <p class="c-card__description">A creative tool or simulation that generates fluid, marble-like textures and patterns in the browser.</p>
+                        <div class="c-card__tags">
+                            <span class="c-card__tag-link">Creative Coding</span>
+                            <span class="c-card__tag-link">p5.js</span>
+                            <span class="c-card__tag-link">Interactive Art</span>
                         </div>
                     </div>
-                </a>
-                
+                </article>
+
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
+
+    <!-- Footer from your homepage source -->
+    <footer class="footer">
+        <div class="footer__social">
+            <a href="https://www.instagram.com/phileasdg/" aria-label="Instagram" class="instagram"><svg><use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#instagram"/></svg> </a>
+            <a href="https://www.linkedin.com/in/phileas/" aria-label="LinkedIn" class="linkedin"><svg><use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#linkedin"/></svg> </a>
+            <a href="https://www.youtube.com/@phileasdg" aria-label="Youtube" class="youtube"><svg><use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#youtube"/></svg></a>
+        </div>
+        <div class="footer__copyright">Phileas Dazeley-Gaist</div>
+    </footer>
+
+    <!-- Scripts from your homepage source -->
+    <script>window.publiiThemeMenuConfig = { mobileMenuMode: 'sidebar', animationSpeed: 300, submenuWidth: 'auto', doubleClickTime: 500, mobileMenuExpandableSubmenus: true, relatedContainerForOverlayMenuSelector: '.navbar', };</script>
+    <script defer="defer" src="https://phileasdg.github.io/assets/js/scripts.min.js"></script>
 
 </body>
 </html>
