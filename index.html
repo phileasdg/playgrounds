@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K13VH578CQ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-K13VH578CQ');
+        gtag('config', 'G-K13VH578CQ');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Playgrounds | Phileas' Website</title>
-    
+
     <!-- Link to your website's main stylesheet -->
     <link rel="stylesheet" href="https://phileasdg.github.io/assets/css/style.css">
-    
+
     <!-- Minimal custom styles to complement your site's theme -->
     <style>
         /* Using a font that complements your site's default */
@@ -30,50 +31,59 @@
         .playgrounds-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 2.5rem; /* The space between cards */
+            gap: 2.5rem;
+            /* The space between cards */
             /* Removed margin-top to fix the spacing issue */
         }
 
         /* Each card is a flex item that can grow and shrink */
-        .playgrounds-grid > .c-card {
-            width: 100%; /* Default to full width on mobile */
-            margin: 0; /* Override default card margin */
-            display: flex; /* Ensure flex properties for internal layout */
+        .playgrounds-grid>.c-card {
+            width: 100%;
+            /* Default to full width on mobile */
+            margin: 0;
+            /* Override default card margin */
+            display: flex;
+            /* Ensure flex properties for internal layout */
             flex-direction: column;
         }
 
         /* On screens larger than mobile, create columns */
         @media (min-width: 600px) {
-            .playgrounds-grid > .c-card {
-                width: calc(50% - 1.25rem); /* 2 columns, accounting for gap */
+            .playgrounds-grid>.c-card {
+                width: calc(50% - 1.25rem);
+                /* 2 columns, accounting for gap */
             }
         }
 
         @media (min-width: 900px) {
-            .playgrounds-grid > .c-card {
-                width: calc(33.333% - 1.67rem); /* 3 columns */
+            .playgrounds-grid>.c-card {
+                width: calc(33.333% - 1.67rem);
+                /* 3 columns */
             }
         }
 
         /* --- IMAGE STYLING FIX --- */
         .playgrounds-grid .c-card__image {
-            height: 200px; /* Fixed height for the image window */
-            overflow: hidden; /* Hide image overflow */
+            height: 200px;
+            /* Fixed height for the image window */
+            overflow: hidden;
+            /* Hide image overflow */
         }
 
         .playgrounds-grid .c-card__image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Scales and centers the image */
+            object-fit: cover;
+            /* Scales and centers the image */
             transition: transform 0.3s ease-out;
             /* This is the key fix: Overrides the opacity:0 from the main stylesheet */
-            opacity: 1; 
+            opacity: 1;
         }
 
         .playgrounds-grid .c-card:hover .c-card__image img {
             transform: scale(1.05);
         }
-        
+
         .c-card__wrapper {
             flex-grow: 1;
             display: flex;
@@ -89,9 +99,9 @@
             margin-top: 0.75rem;
             flex-grow: 1;
         }
-        
     </style>
 </head>
+
 <body class="playgrounds-body">
 
     <!-- Header from your homepage source, with menu reordered -->
@@ -103,7 +113,8 @@
             </button>
             <ul class="navbar__menu">
                 <li><a href="https://phileasdg.github.io/" target="_self">Home</a></li>
-                <li><a href="https://phileasdg.github.io/guest-lectures-and-public-speaking-events/" target="_self">Public Speaking</a></li>
+                <li><a href="https://phileasdg.github.io/guest-lectures-and-public-speaking-events/"
+                        target="_self">Public Speaking</a></li>
                 <li class="active"><a href="#" target="_self">Playgrounds</a></li>
                 <li><a href="https://phileasdg.github.io/publications/" target="_self">Publications</a></li>
                 <li><a href="https://phileasdg.github.io/a-few-words-about-me/" target="_self">About</a></li>
@@ -118,137 +129,200 @@
             <!-- Page Header using your site's post header classes for correct spacing -->
             <header class="post__header">
                 <h1 class="post__title">Playgrounds</h1>
-                <p style="text-align: center; color: var(--gray-2); max-width: 60ch; margin: 1rem auto 0; font-family: 'Inter', sans-serif;">A collection of web experiments, data visualizations, and other curiosities built for learning and fun.</p>
+                <p
+                    style="text-align: center; color: var(--gray-2); max-width: 60ch; margin: 1rem auto 0; font-family: 'Inter', sans-serif;">
+                    A collection of web experiments, data visualizations, and other curiosities built for learning and
+                    fun.</p>
             </header>
 
             <!-- Main Gallery using the new flexbox grid -->
             <div class="playgrounds-grid">
-                
-                <!-- Project Card: Sympoietic Art Organism -->
+
+                <!-- Project Card: Complexity Coffee -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/sympoietic-art-organism" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/sympoietic-organism.png" alt="Sympoietic Art Organism Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
+                    <a href="https://complexitycoffee.org" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/complexity-coffee.png" alt="Complexity Coffee Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/sympoietic-art-organism" class="invert" target="_blank" rel="noopener noreferrer">Sympoietic Art Organism</a></h2>
+                            <h2 class="c-card__title"><a href="https://complexitycoffee.org" class="invert"
+                                    target="_blank" rel="noopener noreferrer">Complexity Coffee</a></h2>
                         </header>
-                        <p class="c-card__description">An exploration of collaborative artmaking and complexity, a co-creative process for growing and evolving a digital lifeform.</p>
+                        <p class="c-card__description">A community-driven virtual series from Santa Fe Institute alums,
+                            dedicated to fostering discussion and sharing new ideas in the field of complexity science.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Project Card: Sympoietic Art Organism -->
+                <article class="c-card">
+                    <a href="https://phileasdg.github.io/sympoietic-art-organism" target="_blank"
+                        rel="noopener noreferrer" class="c-card__image">
+                        <img src="imgs/sympoietic-organism.png" alt="Sympoietic Art Organism Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
+                    </a>
+                    <div class="c-card__wrapper">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/sympoietic-art-organism"
+                                    class="invert" target="_blank" rel="noopener noreferrer">Sympoietic Art Organism</a>
+                            </h2>
+                        </header>
+                        <p class="c-card__description">An exploration of collaborative artmaking and complexity, a
+                            co-creative process for growing and evolving a digital lifeform.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Global Trade Network -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/global-trade-network" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/global-trade-network.png" alt="Global Trade Network Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/global-trade-network" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/global-trade-network.png" alt="Global Trade Network Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/global-trade-network" class="invert" target="_blank" rel="noopener noreferrer">Global Trade Network</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/global-trade-network"
+                                    class="invert" target="_blank" rel="noopener noreferrer">Global Trade Network</a>
+                            </h2>
                         </header>
-                        <p class="c-card__description">An online global trade network visualization tool using UN ComTrade and WTO data.</p>
+                        <p class="c-card__description">An online global trade network visualization tool using UN
+                            ComTrade and WTO data.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Sunken Garden -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/coa-sunken-garden/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/sunken-garden.png" alt="Sunken Garden Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/004466/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/coa-sunken-garden/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/sunken-garden.png" alt="Sunken Garden Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/004466/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/coa-sunken-garden/" class="invert" target="_blank" rel="noopener noreferrer">COA Sunken Garden Explorer</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/coa-sunken-garden/"
+                                    class="invert" target="_blank" rel="noopener noreferrer">COA Sunken Garden
+                                    Explorer</a></h2>
                         </header>
-                        <p class="c-card__description">An interactive map and guide to the College of the Atlantic Sunken Garden.</p>
+                        <p class="c-card__description">An interactive map and guide to the College of the Atlantic
+                            Sunken Garden.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Marbler -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/marbler/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/marbler.png" alt="Marbler Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/990033/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/marbler/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/marbler.png" alt="Marbler Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/990033/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/marbler/" class="invert" target="_blank" rel="noopener noreferrer">Marbler</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/marbler/" class="invert"
+                                    target="_blank" rel="noopener noreferrer">Marbler</a></h2>
                         </header>
-                        <p class="c-card__description">A creative simulation tool that generates fluid, marble-like textures and patterns in the browser.</p>
+                        <p class="c-card__description">A creative simulation tool that generates fluid, marble-like
+                            textures and patterns in the browser.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Boid Ecosystem -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/boid-ecosystem/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/boid-ecosystem.png" alt="Boid Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/boid-ecosystem/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/boid-ecosystem.png" alt="Boid Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/boid-ecosystem/" class="invert" target="_blank" rel="noopener noreferrer">Boid Ecosystem</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/boid-ecosystem/"
+                                    class="invert" target="_blank" rel="noopener noreferrer">Boid Ecosystem</a></h2>
                         </header>
-                        <p class="c-card__description">A simple 3D boid simulator based on the 1987 paper by Craig Reynolds.</p>
+                        <p class="c-card__description">A simple 3D boid simulator based on the 1987 paper by Craig
+                            Reynolds.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Weaver -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/weaver/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/weaver.png" alt="Weaver Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/weaver/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/weaver.png" alt="Weaver Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/weaver/" class="invert" target="_blank" rel="noopener noreferrer">Weaver</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/weaver/" class="invert"
+                                    target="_blank" rel="noopener noreferrer">Weaver</a></h2>
                         </header>
-                        <p class="c-card__description">A creative tool for weaving pattern design and exploration in the browser.</p>
+                        <p class="c-card__description">A creative tool for weaving pattern design and exploration in the
+                            browser.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Parchment -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/parchment/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/parchment.png" alt="Parchment Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/parchment/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/parchment.png" alt="Parchment Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/parchment/" class="invert" target="_blank" rel="noopener noreferrer">Parchment</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/parchment/" class="invert"
+                                    target="_blank" rel="noopener noreferrer">Parchment</a></h2>
                         </header>
-                        <p class="c-card__description">A no fuss Markdown editor with LaTeX and syntax highlighting support.</p>
+                        <p class="c-card__description">A no fuss Markdown editor with LaTeX and syntax highlighting
+                            support.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Abulafia -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/abulafia/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/abulafia.png" alt="Abulafia Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/abulafia/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/abulafia.png" alt="Abulafia Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/abulafia/" class="invert" target="_blank" rel="noopener noreferrer">Abulafia</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/abulafia/" class="invert"
+                                    target="_blank" rel="noopener noreferrer">Abulafia</a></h2>
                         </header>
-                        <p class="c-card__description">A device for textual transmutation based on Foucault's Pendulum, by Umberto Eco.</p>
+                        <p class="c-card__description">A device for textual transmutation based on Foucault's Pendulum,
+                            by Umberto Eco.</p>
                     </div>
                 </article>
 
                 <!-- Project Card: Synapse networked notebooks -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/synapse" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/synapse.png" alt="Synapse Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/synapse" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/synapse.png" alt="Synapse Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/1a1a1a/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/synapse" class="invert" target="_blank" rel="noopener noreferrer">Synapse: Networked Notes</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/synapse" class="invert"
+                                    target="_blank" rel="noopener noreferrer">Synapse: Networked Notes</a></h2>
                         </header>
-                        <p class="c-card__description">A networked Markdown notetaking tool with some fancy features.</p>
+                        <p class="c-card__description">A networked Markdown notetaking tool with some fancy features.
+                        </p>
                     </div>
                 </article>
 
                 <!-- Project Card: ASCII3D -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/ASCII3D/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/ASCII3D.png" alt="ASCII3D Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/ASCII3D/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/ASCII3D.png" alt="ASCII3D Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/ASCII3D/" class="invert" target="_blank" rel="noopener noreferrer">ASCII3D</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/ASCII3D/" class="invert"
+                                    target="_blank" rel="noopener noreferrer">ASCII3D</a></h2>
                         </header>
                         <p class="c-card__description">A browser-based 3D object ASCII viewer and converter.</p>
                     </div>
@@ -256,14 +330,18 @@
 
                 <!-- Project Card: Seawise -->
                 <article class="c-card">
-                    <a href="https://phileasdg.github.io/seawise/" target="_blank" rel="noopener noreferrer" class="c-card__image">
-                        <img src="imgs/seawise.png" alt="Seawise Project Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
+                    <a href="https://phileasdg.github.io/seawise/" target="_blank" rel="noopener noreferrer"
+                        class="c-card__image">
+                        <img src="imgs/seawise.png" alt="Seawise Project Thumbnail"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x380/336699/ffffff?text=Image+Not+Found';">
                     </a>
                     <div class="c-card__wrapper">
                         <header class="c-card__header">
-                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/seawise/" class="invert" target="_blank" rel="noopener noreferrer">Seawise</a></h2>
+                            <h2 class="c-card__title"><a href="https://phileasdg.github.io/seawise/" class="invert"
+                                    target="_blank" rel="noopener noreferrer">Seawise</a></h2>
                         </header>
-                        <p class="c-card__description">A marine charts explorer for i-Boating maps. Proof of concept.</p>
+                        <p class="c-card__description">A marine charts explorer for i-Boating maps. Proof of concept.
+                        </p>
                     </div>
                 </article>
 
@@ -274,9 +352,15 @@
     <!-- Footer from your homepage source -->
     <footer class="footer">
         <div class="footer__social">
-            <a href="https://www.instagram.com/phileasdg/" aria-label="Instagram" class="instagram"><svg><use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#instagram"/></svg> </a>
-            <a href="https://www.linkedin.com/in/phileas/" aria-label="LinkedIn" class="linkedin"><svg><use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#linkedin"/></svg> </a>
-            <a href="https://www.youtube.com/@phileasdg" aria-label="Youtube" class="youtube"><svg><use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#youtube"/></svg></a>
+            <a href="https://www.instagram.com/phileasdg/" aria-label="Instagram" class="instagram"><svg>
+                    <use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#instagram" />
+                </svg> </a>
+            <a href="https://www.linkedin.com/in/phileas/" aria-label="LinkedIn" class="linkedin"><svg>
+                    <use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#linkedin" />
+                </svg> </a>
+            <a href="https://www.youtube.com/@phileasdg" aria-label="Youtube" class="youtube"><svg>
+                    <use xlink:href="https://phileasdg.github.io/assets/svg/svg-map.svg#youtube" />
+                </svg></a>
         </div>
         <div class="footer__copyright">Phileas Dazeley-Gaist</div>
     </footer>
@@ -286,4 +370,5 @@
     <script defer="defer" src="https://phileasdg.github.io/assets/js/scripts.min.js"></script>
 
 </body>
+
 </html>
